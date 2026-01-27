@@ -1,0 +1,14 @@
+# API Keys and secrets
+.env
+*.key
+*_key.txt
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
