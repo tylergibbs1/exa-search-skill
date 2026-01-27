@@ -1,6 +1,6 @@
-# Exa Search Skill
+# Exa Search Skill for Clawdbot
 
-Search for people, companies, and specific content types using Exa's neural/embeddings-based search API.
+A [Clawdbot](https://github.com/clawdbot/clawdbot) skill for searching people, companies, and specific content types using [Exa's](https://exa.ai) neural/embeddings-based search API.
 
 ## What is Exa?
 
@@ -13,20 +13,38 @@ Exa is a search API that uses neural embeddings to find specific types of conten
 
 ## Why Use This?
 
-Tyler wanted to build prospect lists for Verity (medical billing managers, RCM companies, etc.). Exa is **perfect** for this:
+Perfect for building prospect lists, competitive research, and finding specific people/companies:
 
 1. **Find 100 medical billing managers** with LinkedIn profiles
-2. **Find RCM software companies** with summaries
+2. **Find companies in specific industries** with AI-generated summaries
 3. **Find recent news** about competitors
 4. **Extract structured data** from results (names, titles, companies)
 
-Traditional search (Brave) can't do category filtering or semantic search like this.
+Traditional search engines can't do category filtering or semantic search like this.
 
-## Getting Started
+## Installation
 
-1. Get API key: https://dashboard.exa.ai/api-keys
-2. Export it: `export EXA_API_KEY="your_key"`
-3. Read SKILL.md for usage examples
+### For Clawdbot Users
+
+1. Clone this skill to your Clawdbot skills directory:
+```bash
+cd ~/clawd/skills  # or wherever your skills directory is
+git clone https://github.com/Tylerbryy/exa-search-skill.git exa-search
+```
+
+2. Get your Exa API key: https://dashboard.exa.ai/api-keys
+
+3. Add to your environment:
+```bash
+export EXA_API_KEY="your_api_key_here"
+# Add to ~/.zshrc or ~/.bashrc to persist
+```
+
+4. Restart Clawdbot or reload skills
+
+### For Direct Use (Without Clawdbot)
+
+Just grab the examples from `examples.md` and use curl directly with your API key.
 
 ## Example: Building a Prospect List
 
