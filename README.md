@@ -1,52 +1,30 @@
 # Exa Search Skill for Clawdbot
 
-A [Clawdbot](https://github.com/clawdbot/clawdbot) skill for searching people, companies, and specific content types using [Exa's](https://exa.ai) neural/embeddings-based search API.
+A [Clawdbot](https://github.com/clawdbot/clawdbot) skill for searching people, companies, and specific content types using [Exa's](https://exa.ai) neural/embeddings-based search API. Useful for building prospect lists, competitive research, and finding specific people or companies.
 
-## What is Exa?
+## Quick start
 
-Exa is a search API that uses neural embeddings to find specific types of content that traditional search engines struggle with. It's especially good at finding:
-
-- **People** - LinkedIn profiles, personal sites
-- **Companies** - Company pages and profiles
-- **Research papers** - Academic publications
-- **Tweets, GitHub repos, PDFs** - Specific content types
-
-## Why Use This?
-
-Perfect for building prospect lists, competitive research, and finding specific people/companies:
-
-1. **Find 100 medical billing managers** with LinkedIn profiles
-2. **Find companies in specific industries** with AI-generated summaries
-3. **Find recent news** about competitors
-4. **Extract structured data** from results (names, titles, companies)
-
-Traditional search engines can't do category filtering or semantic search like this.
-
-## Installation
-
-### For Clawdbot Users
-
-1. Clone this skill to your Clawdbot skills directory:
 ```bash
 cd ~/clawd/skills  # or wherever your skills directory is
-git clone https://github.com/Tylerbryy/exa-search-skill.git exa-search
+git clone https://github.com/tylergibbs1/exa-search-skill.git exa-search
+export EXA_API_KEY="your_api_key_here"  # https://dashboard.exa.ai/api-keys
 ```
 
-2. Get your Exa API key: https://dashboard.exa.ai/api-keys
+Then restart Clawdbot or reload skills. Not using Clawdbot? Grab the curl examples from [examples.md](examples.md) and call the API directly.
 
-3. Add to your environment:
-```bash
-export EXA_API_KEY="your_api_key_here"
-# Add to ~/.zshrc or ~/.bashrc to persist
-```
+## How it works
 
-4. Restart Clawdbot or reload skills
+The skill ([SKILL.md](SKILL.md)) teaches the agent when to reach for Exa instead of general web search, and how to call Exa's API. Exa uses neural embeddings to find content types that traditional search engines struggle with, and supports category filtering and semantic search.
 
-### For Direct Use (Without Clawdbot)
+## Features
 
-Just grab the examples from `examples.md` and use curl directly with your API key.
+- **People**: LinkedIn profiles, personal sites
+- **Companies**: company pages and profiles, with AI-generated summaries
+- **Research papers**: academic publications
+- **Tweets, GitHub repos, PDFs**: specific content types
+- **Structured extraction**: pull names, titles, and companies out of results
 
-## Example: Building a Prospect List
+## Example: building a prospect list
 
 ```bash
 curl -X POST https://api.exa.ai/search \
@@ -62,9 +40,23 @@ curl -X POST https://api.exa.ai/search \
   }'
 ```
 
-Returns 50 LinkedIn profiles with names, titles, companies.
+Returns 50 LinkedIn profiles with names, titles, companies. More in [examples.md](examples.md).
 
-## Use Cases for Verity
+## Installation
+
+1. Clone this skill to your Clawdbot skills directory:
+   ```bash
+   cd ~/clawd/skills  # or wherever your skills directory is
+   git clone https://github.com/tylergibbs1/exa-search-skill.git exa-search
+   ```
+2. Get your Exa API key: https://dashboard.exa.ai/api-keys
+3. Add to your environment (and to `~/.zshrc` or `~/.bashrc` to persist):
+   ```bash
+   export EXA_API_KEY="your_api_key_here"
+   ```
+4. Restart Clawdbot or reload skills.
+
+## Use cases for Verity
 
 - Find medical billing managers to cold email
 - Find RCM software companies (competitors/partners)
@@ -79,4 +71,6 @@ Returns 50 LinkedIn profiles with names, titles, companies.
 - Deep search: $0.015 for 1-25 results
 - Content extraction: $0.001 per page
 
-Very affordable for building lists.
+## License
+
+[MIT](LICENSE)
